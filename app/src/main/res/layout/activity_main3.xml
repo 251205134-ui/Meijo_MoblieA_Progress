@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:text="進捗追加ページ"/>
+        android:text="進捗追加ページ"/>
 
     <EditText
         android:id="@+id/addProgressEditText"
@@ -27,7 +27,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/addProgressButton"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:hint="ここに追加したい進捗を入力する"/>
+        android:text="ここに追加したい進捗を入力する"/>
     <Button
         android:id="@+id/addProgressButton"
         android:layout_width="wrap_content"
@@ -36,7 +36,8 @@
         app:layout_constraintStart_toEndOf="@id/addProgressEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:text="進捗追加"/>
+        android:text="進捗追加"/>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
