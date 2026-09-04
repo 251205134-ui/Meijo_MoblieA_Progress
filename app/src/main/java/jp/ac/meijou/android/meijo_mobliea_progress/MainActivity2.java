@@ -151,20 +151,23 @@ public class MainActivity2 extends AppCompatActivity {
     private void complete(){
         StringBuilder finished=new StringBuilder();
         StringBuilder yet=new StringBuilder();
+        boolean isFirst=true;
         for(var item : items){
             if(item.isFinished){
-                finished.append(","+item.name);
+                finished.append((isFirst?"":",")+item.name);
             }
             else{
-                yet.append(","+item.name);
+                yet.append((isFirst?"":",")+item.name);
             }
+            isFirst=false;
         }
         var intent=new Intent();
         intent.putExtra("finished",finished.toString());
         intent.putExtra("yet",yet.toString());
         setResult(RESULT_OK,intent);
-
         finish();
+
+//        binding.titleView.setText(finished.toString());
     }
 
 }
