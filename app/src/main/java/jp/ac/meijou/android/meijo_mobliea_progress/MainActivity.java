@@ -11,6 +11,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.Optional;
+
 import jp.ac.meijou.android.meijo_mobliea_progress.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -47,10 +49,8 @@ public class MainActivity extends AppCompatActivity {
             result -> {
                 switch (result.getResultCode()) {
                     case RESULT_OK -> {
-
-                    }
-                    case RESULT_CANCELED -> {
-
+                        yetList = getIntent().getStringExtra("yet");
+                        finishedList = getIntent().getStringExtra("finished");
                     }
                     default -> {
 
