@@ -29,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        binding.button1.setOnClickListener(view -> {
+            String title = binding.title1.getText().toString();
+        });
     }
 
     private final ActivityResultLauncher<Intent> getActivityResult = registerForActivityResult(
