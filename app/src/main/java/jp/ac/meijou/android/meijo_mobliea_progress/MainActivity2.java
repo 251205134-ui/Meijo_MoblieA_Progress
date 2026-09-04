@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -123,6 +125,12 @@ public class MainActivity2 extends AppCompatActivity {
 
         binding.backButton1.setOnClickListener(view->complete());
 
+        binding.addItemButton.setOnClickListener(view->{
+            var intent=new Intent(this, MainActivity3.class);
+            getAddItemActivityResult.launch(intent);
+
+        });
+
     }
 
     private void toggleFinished(int itemId){
@@ -173,5 +181,19 @@ public class MainActivity2 extends AppCompatActivity {
 
 //        binding.titleView.setText(finished.toString());
     }
+
+    private final ActivityResultLauncher<Intent> getAddItemActivityResult = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                switch (result.getResultCode()) {
+                    case RESULT_OK -> {
+                        // ここに進捗カテゴリー追加のアクティビティから戻った場合の処理をかく.
+                    }
+                    default -> {
+
+                    }
+                }
+            }
+    );
 
 }

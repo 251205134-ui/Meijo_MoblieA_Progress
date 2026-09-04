@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         // 進捗追加画面に遷移.
         binding.createNewCategory.setOnClickListener(view->{
-            var intent= new Intent(this, MainActivity3.class);
+            var intent= new Intent(this, MainActivity4.class);
             getCreateCategoryActivityResult.launch(intent);
         });
     }

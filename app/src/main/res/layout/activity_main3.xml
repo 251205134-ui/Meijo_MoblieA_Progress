@@ -21,13 +21,13 @@
 
     <EditText
         android:id="@+id/addProgressEditText"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/view3Title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/addProgressButton"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:text="ここに追加したい進捗を入力する"/>
+        tools:text="ここに追加したい進捗を入力する"/>
     <Button
         android:id="@+id/addProgressButton"
         android:layout_width="wrap_content"
