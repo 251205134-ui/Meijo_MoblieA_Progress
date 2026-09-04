@@ -71,9 +71,11 @@ public class MainActivity2 extends AppCompatActivity {
         Optional<String> titleIntent= Optional.ofNullable(getIntent().getStringExtra("title"));
         if(titleIntent.isPresent()){
             title=titleIntent.get();
+            binding.titleView.setText(title);
         }
         else {
             title="Error: Title was not sent";
+            binding.titleView.setText(title);
         }
         String[] finishedItems={},yetItems={};
         var finishedIntent= Optional.ofNullable(getIntent().getStringExtra("finished"));
@@ -112,10 +114,10 @@ public class MainActivity2 extends AppCompatActivity {
             var v=view.get(i);
             var item=items.get(i);
             v.setId(item.id);
-            v.nameView.setText((item.isFinished?"> ":"")+ item.name);
             v.toggleProgress.setOnClickListener(view->{
                 toggleFinished(item.id);
             });
+            setViewText(v,item.isFinished,item.name);
         }
 
         binding.backButton1.setOnClickListener(view->complete());
@@ -137,27 +139,35 @@ public class MainActivity2 extends AppCompatActivity {
         }
         if(item==null||viewItem==null)return;
         item.isFinished=!item.isFinished;
-        viewItem.nameView.setText((item.isFinished?"> ":"")+ item.name);
+        setViewText(viewItem,item.isFinished,item.name);
 
+    }
+
+    private void setViewText(ProgressViewItem viewItem,boolean isFinished,String name){
+        viewItem.nameView.setText((isFinished?"> ":"")+ name);
+        viewItem.toggleProgress.setText(isFinished?"取り消す":"達成");
     }
 
     private void complete(){
         StringBuilder finished=new StringBuilder();
         StringBuilder yet=new StringBuilder();
+        boolean isFirst=true;
         for(var item : items){
             if(item.isFinished){
-                finished.append(item.name);
+                finished.append((isFirst?"":",")+item.name);
             }
             else{
-                yet.append(item.name);
+                yet.append((isFirst?"":",")+item.name);
             }
+            isFirst=false;
         }
         var intent=new Intent();
         intent.putExtra("finished",finished.toString());
         intent.putExtra("yet",yet.toString());
         setResult(RESULT_OK,intent);
-
         finish();
+
+//        binding.titleView.setText(finished.toString());
     }
 
 }
