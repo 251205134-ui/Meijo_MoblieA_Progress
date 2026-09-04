@@ -43,6 +43,13 @@ public class MainActivity extends AppCompatActivity {
             getActivityResult.launch(intent);
         });
 
+
+
+        // 進捗追加画面に遷移.
+        binding.createNewCategory.setOnClickListener(view->{
+            var intent= new Intent(this, MainActivity3.class);
+            getCreateCategoryActivityResult.launch(intent);
+        });
     }
 
     private final ActivityResultLauncher<Intent> getActivityResult = registerForActivityResult(
@@ -57,6 +64,20 @@ public class MainActivity extends AppCompatActivity {
                                 .map(data -> data.getStringExtra("yet"))
                                 .ifPresent(text -> yetList = text);
 
+                    }
+                    default -> {
+
+                    }
+                }
+            }
+    );
+
+    private final ActivityResultLauncher<Intent> getCreateCategoryActivityResult = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                switch (result.getResultCode()) {
+                    case RESULT_OK -> {
+                        // ここに進捗カテゴリー追加のアクティビティから戻った場合の処理をかく.
                     }
                     default -> {
 
