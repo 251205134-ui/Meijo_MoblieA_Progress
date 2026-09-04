@@ -20,16 +20,22 @@ import jp.ac.meijou.android.meijo_mobliea_progress.databinding.ActivityMain2Bind
 public class MainActivity2 extends AppCompatActivity {
 
     static class ProgressItem{
+        static private int nextId=0;
+        public final int id;
         public String name;
         public boolean isFinished;
         public ProgressItem(String name,boolean isFinished){
             this.name=name;
             this.isFinished=isFinished;
+            id=nextId++;
         }
     }
     static class ProgressViewItem{
+        public int id;
         public TextView nameView;
         public Button toggleProgress;
+
+        public void setId(int id){this.id=id;}
 
         public ProgressViewItem(TextView text,Button toggleButton){
             nameView=text;
@@ -100,16 +106,32 @@ public class MainActivity2 extends AppCompatActivity {
             if(i>=items.size())break;
             var v=view.get(i);
             var item=items.get(i);
+            v.setId(item.id);
             v.nameView.setText((item.isFinished?"> ":"")+ item.name);
             v.toggleProgress.setOnClickListener(view->{
-                item.isFinished=!item.isFinished;
+                toggleFinished(item.id);
             });
         }
-
-
-
     }
 
+    private void toggleFinished(int itemId){
+        ProgressItem item=null;
+        ProgressViewItem viewItem=null;
+        for(var i : items){
+            if(i.id==itemId){
+                item=i;
+            }
+        }
+        for (var v : view){
+            if(v.id==itemId){
+                viewItem=v;
+            }
+        }
+        if(item==null||viewItem==null)return;
+        item.isFinished=!item.isFinished;
+        viewItem.nameView.setText((item.isFinished?"> ":"")+ item.name);
+
+    }
 
 
 
