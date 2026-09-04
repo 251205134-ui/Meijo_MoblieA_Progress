@@ -68,26 +68,26 @@ public class MainActivity2 extends AppCompatActivity {
         });
 
         // Intent受け取り.
-//        Optional<String> titleIntent= Optional.ofNullable(getIntent().getStringExtra("title"));
-//        if(titleIntent.isPresent()){
-//            title=titleIntent.get();
-//        }
-//        else {
-//            title="Error: Title was not sent";
-//        }
+        Optional<String> titleIntent= Optional.ofNullable(getIntent().getStringExtra("title"));
+        if(titleIntent.isPresent()){
+            title=titleIntent.get();
+        }
+        else {
+            title="Error: Title was not sent";
+        }
         String[] finishedItems={},yetItems={};
-//        var finishedIntent= Optional.ofNullable(getIntent().getStringExtra("finished"));
-//        var yetIntent= Optional.ofNullable(getIntent().getStringExtra("yet"));
-//        if(finishedIntent.isPresent()){
-//            finishedItems=finishedIntent.get().split(",");
-//        }
-//        if(yetIntent.isPresent()){
-//            yetItems=yetIntent.get().split(",");
-//        }
+        var finishedIntent= Optional.ofNullable(getIntent().getStringExtra("finished"));
+        var yetIntent= Optional.ofNullable(getIntent().getStringExtra("yet"));
+        if(finishedIntent.isPresent()){
+            finishedItems=finishedIntent.get().split(",");
+        }
+        if(yetIntent.isPresent()){
+            yetItems=yetIntent.get().split(",");
+        }
 
         // debug
-        finishedItems=new String[]{"f1","f2"};
-        yetItems=new String[]{"y1","y2"};
+//        finishedItems=new String[]{"f1","f2"};
+//        yetItems=new String[]{"y1","y2"};
 
         // Itemsの配列保持.
         for(int i=0;i<finishedItems.length;++i){
@@ -114,7 +114,7 @@ public class MainActivity2 extends AppCompatActivity {
             });
         }
 
-        
+
     }
 
     private void toggleFinished(int itemId){
