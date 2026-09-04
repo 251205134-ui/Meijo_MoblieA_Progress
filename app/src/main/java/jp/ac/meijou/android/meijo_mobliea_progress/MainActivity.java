@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private String yetList = "aaa,bbb,ccc";//おわてないものリスト
     private String finishedList = "fin";//終わったものリスト
+    String text = "";//進捗状況を表示
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +65,24 @@ public class MainActivity extends AppCompatActivity {
                                 .map(data -> data.getStringExtra("yet"))
                                 .ifPresent(text -> yetList = text);
 
+                        text = "";
+                        String[] yetItems = {}, finishedItems = {};
+
+                        if(finishedList.isEmpty()) {
+                            text += "0/";
+                        }else {
+                            finishedItems = finishedList.split(",");
+                            text += finishedItems.length + "/";
+                        }
+                        if(yetList.isEmpty()){
+                            text += finishedItems.length;
+                        }else{
+                            yetItems = yetList.split(",");
+                            text += (yetItems.length + finishedItems.length);
+                        }
+
+
+                        binding.progress1.setText(text);
                     }
                     default -> {
 
