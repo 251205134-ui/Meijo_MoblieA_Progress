@@ -8,13 +8,94 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="進捗状況"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:textSize="30sp"
+        />
+
+
+    <TextView
+        android:id="@+id/meel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="・料理 "
+        app:layout_constraintStart_toStartOf="@+id/progress"
+        app:layout_constraintTop_toBottomOf="@+id/progress"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+
+        />
+    <Button
+        android:id="@+id/meelbutton"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/meel"
+        app:layout_constraintTop_toTopOf="@id/meel"
+        />
+    <TextView
+        android:id="@+id/meelprogress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/meel"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="2/3"
+        android:textSize="20dp"
+        android:layout_marginEnd="30sp"
+        />
+
+    <TextView
+        android:id="@+id/sleep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="・睡眠"
+        app:layout_constraintStart_toStartOf="@+id/meel"
+        app:layout_constraintTop_toBottomOf="@+id/meel"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+
+        />
+    <Button
+        android:id="@+id/sleepbutton"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/sleep"
+        app:layout_constraintTop_toTopOf="@id/sleep"
+        />
+    <TextView
+        android:id="@+id/sleeplprogress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/sleep"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="2/15"
+        android:textSize="20dp"
+        android:layout_marginEnd="30sp"
+        />
+
+    <Button
+        android:id="@+id/creatnewcategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="＋"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="20dp"
+        android:scaleY="1"
+        android:scaleX="1"
+        />
+
+
+
 
     <TextView
         android:layout_width="wrap_content"
