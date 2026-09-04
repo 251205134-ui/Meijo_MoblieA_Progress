@@ -15,8 +15,8 @@ import jp.ac.meijou.android.meijo_mobliea_progress.databinding.ActivityMainBindi
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
-    private String yetList = "";
-    private String finishedList = "";
+    private String yetList = "";//おわてないものリスト
+    private String finishedList = "";//終わったものリスト
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("title", title);
             intent.putExtra("yet", yetList);
             intent.putExtra("finished", finishedList);
-            startActivity(intent);
+            getActivityResult.launch(intent);
         });
     }
 
