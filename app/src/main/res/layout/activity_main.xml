@@ -21,7 +21,7 @@
 
 
     <TextView
-        android:id="@+id/meel"
+        android:id="@+id/title1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="・料理 "
@@ -32,18 +32,18 @@
 
         />
     <Button
-        android:id="@+id/meelbutton"
+        android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="@+id/meel"
-        app:layout_constraintTop_toTopOf="@id/meel"
+        app:layout_constraintStart_toStartOf="@+id/title1"
+        app:layout_constraintTop_toTopOf="@id/title1"
         />
     <TextView
-        android:id="@+id/meelprogress"
+        android:id="@+id/progress1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@+id/meel"
+        app:layout_constraintTop_toTopOf="@+id/title1"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="2/3"
         android:textSize="20dp"
@@ -51,29 +51,29 @@
         />
 
     <TextView
-        android:id="@+id/sleep"
+        android:id="@+id/title2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="・睡眠"
-        app:layout_constraintStart_toStartOf="@+id/meel"
-        app:layout_constraintTop_toBottomOf="@+id/meel"
+        app:layout_constraintStart_toStartOf="@+id/title1"
+        app:layout_constraintTop_toBottomOf="@+id/title1"
         android:layout_marginTop="20dp"
         android:textSize="20dp"
 
         />
     <Button
-        android:id="@+id/sleepbutton"
+        android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="@+id/sleep"
-        app:layout_constraintTop_toTopOf="@id/sleep"
+        app:layout_constraintStart_toStartOf="@+id/title2"
+        app:layout_constraintTop_toTopOf="@id/title2"
         />
     <TextView
-        android:id="@+id/sleeplprogress"
+        android:id="@+id/progress2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@+id/sleep"
+        app:layout_constraintTop_toTopOf="@+id/title2"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="2/15"
         android:textSize="20dp"
