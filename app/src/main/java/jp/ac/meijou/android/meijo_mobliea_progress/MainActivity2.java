@@ -1,5 +1,6 @@
 package jp.ac.meijou.android.meijo_mobliea_progress;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -112,6 +113,8 @@ public class MainActivity2 extends AppCompatActivity {
                 toggleFinished(item.id);
             });
         }
+
+        
     }
 
     private void toggleFinished(int itemId){
@@ -133,6 +136,23 @@ public class MainActivity2 extends AppCompatActivity {
 
     }
 
+    private void complete(){
+        StringBuilder finished=new StringBuilder();
+        StringBuilder yet=new StringBuilder();
+        for(var item : items){
+            if(item.isFinished){
+                finished.append(item.name);
+            }
+            else{
+                yet.append(item.name);
+            }
+        }
+        var intent=new Intent();
+        intent.putExtra("finished",finished.toString());
+        intent.putExtra("yet",yet.toString());
+        setResult(RESULT_OK,intent);
 
+        finish();
+    }
 
 }
