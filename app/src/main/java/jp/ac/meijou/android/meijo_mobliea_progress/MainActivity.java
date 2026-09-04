@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("finished", finishedList);
             getActivityResult.launch(intent);
         });
+
     }
 
     private final ActivityResultLauncher<Intent> getActivityResult = registerForActivityResult(
@@ -49,8 +50,13 @@ public class MainActivity extends AppCompatActivity {
             result -> {
                 switch (result.getResultCode()) {
                     case RESULT_OK -> {
-                        yetList = getIntent().getStringExtra("yet");
-                        finishedList = getIntent().getStringExtra("finished");
+                        Optional.ofNullable(result.getData())
+                                .map(data -> data.getStringExtra("finished"))
+                                .ifPresent(text -> finishedList = text);
+                        Optional.ofNullable(result.getData())
+                                .map(data -> data.getStringExtra("yet"))
+                                .ifPresent(text -> yetList = text);
+
                     }
                     default -> {
 
