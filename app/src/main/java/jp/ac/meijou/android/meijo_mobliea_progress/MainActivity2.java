@@ -1,11 +1,14 @@
 package jp.ac.meijou.android.meijo_mobliea_progress;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -122,6 +125,12 @@ public class MainActivity2 extends AppCompatActivity {
 
         binding.backButton1.setOnClickListener(view->complete());
 
+        binding.addItemButton.setOnClickListener(view->{
+            var intent=new Intent(this, MainActivity3.class);
+            getAddItemActivityResult.launch(intent);
+
+        });
+
     }
 
     private void toggleFinished(int itemId){
@@ -146,6 +155,7 @@ public class MainActivity2 extends AppCompatActivity {
     private void setViewText(ProgressViewItem viewItem,boolean isFinished,String name){
         viewItem.nameView.setText((isFinished?"> ":"")+ name);
         viewItem.toggleProgress.setText(isFinished?"取り消す":"達成");
+        viewItem.nameView.setBackgroundColor(isFinished?Color.GREEN:Color.YELLOW);
     }
 
     private void complete(){
@@ -171,5 +181,19 @@ public class MainActivity2 extends AppCompatActivity {
 
 //        binding.titleView.setText(finished.toString());
     }
+
+    private final ActivityResultLauncher<Intent> getAddItemActivityResult = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                switch (result.getResultCode()) {
+                    case RESULT_OK -> {
+                        // ここに進捗カテゴリー追加のアクティビティから戻った場合の処理をかく.
+                    }
+                    default -> {
+
+                    }
+                }
+            }
+    );
 
 }
