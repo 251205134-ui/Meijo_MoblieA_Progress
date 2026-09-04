@@ -79,10 +79,14 @@ public class MainActivity2 extends AppCompatActivity {
         var finishedIntent= Optional.ofNullable(getIntent().getStringExtra("finished"));
         var yetIntent= Optional.ofNullable(getIntent().getStringExtra("yet"));
         if(finishedIntent.isPresent()){
-            finishedItems=finishedIntent.get().split(",");
+            if(!finishedIntent.get().isEmpty()) {
+                finishedItems = finishedIntent.get().split(",");
+            }
         }
         if(yetIntent.isPresent()){
-            yetItems=yetIntent.get().split(",");
+            if(!yetIntent.get().isEmpty()) {
+                yetItems = yetIntent.get().split(",");
+            }
         }
 
         // debug
@@ -114,6 +118,7 @@ public class MainActivity2 extends AppCompatActivity {
             });
         }
 
+        binding.backButton1.setOnClickListener(view->complete());
 
     }
 
