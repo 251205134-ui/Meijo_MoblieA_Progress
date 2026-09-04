@@ -1,6 +1,7 @@
 package jp.ac.meijou.android.meijo_mobliea_progress;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -146,6 +147,7 @@ public class MainActivity2 extends AppCompatActivity {
     private void setViewText(ProgressViewItem viewItem,boolean isFinished,String name){
         viewItem.nameView.setText((isFinished?"> ":"")+ name);
         viewItem.toggleProgress.setText(isFinished?"取り消す":"達成");
+        viewItem.nameView.setBackgroundColor(isFinished?Color.GREEN:Color.YELLOW);
     }
 
     private void complete(){
