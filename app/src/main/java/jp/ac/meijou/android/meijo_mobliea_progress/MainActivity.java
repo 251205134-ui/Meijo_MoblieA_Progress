@@ -17,7 +17,7 @@ import jp.ac.meijou.android.meijo_mobliea_progress.databinding.ActivityMainBindi
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
-    private String yetList = "aaa,bbb,ccc";//おわてないものリスト
+    private String yetList = "aaa,bbb,ccc";//終わってないものリスト
     private String finishedList = "fin";//終わったものリスト
     String text = "";//進捗状況を表示
 
